@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SLR - Salary Prediction</title>
+  <style>
+    html,body { height:100%; margin:0; font-family:Arial, sans-serif; }
+    body { background: skyblue; display:flex; flex-direction:column; align-items:center; }
+    .wrap { margin-top:60px; width:90%; max-width:680px; text-align:center; }
+    .card {
+      background:#fff; padding:26px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    }
+    h1 { margin:0 0 12px 0; }
+    label { display:block; text-align:left; margin:12px 0 6px; font-weight:600; }
+    input { width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; }
+    button { margin-top:14px; padding:10px 18px; border:none; border-radius:8px; background: #ff3300; color:#fff; font-weight:700; cursor:pointer; }
+    button:hover { background:#cc2900; }
+    .result-box { margin-top:18px; background:#f7f7f7; padding:12px; border-radius:8px; font-weight:700; }
+    .footer {
+      position:fixed; left:0; right:0; bottom:0; background: #001f4d; color:#fff;
+      padding:12px 10px; text-align:center; font-weight:600;
+    }
+    .footer a { color:#fff; text-decoration:none; margin:0 12px; }
+    .footer a:hover { color:#ffd54f; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Salary Prediction (SLR)</h1>
+      <form method="post" action="/predict_slr">
+        <label for="experience">Years of Experience</label>
+        <input id="experience" name="experience" type="number" step="0.01" required>
+        <button type="submit">Predict Salary</button>
+      </form>
+
+      {% if slr_result %}
+      <div class="result-box">Predicted Salary: {{ slr_result }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/contact">Contact</a>
+  </div>
+</body>
+</html>

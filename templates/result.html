@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            background-color: #fff176; /* soft yellow */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .result-box {
+            background: white;
+            display: inline-block;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+        }
+        .navbar {
+            position: fixed;
+            bottom: 0; left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #ff512f, #dd2476);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px -5px 15px rgba(0,0,0,0.2);
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .navbar a:hover { color: yellow; }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>{{ title }}</h1>
+        <p><strong>Predicted {{ label }}:</strong> {{ prediction }}</p>
+    </div>
+
+    <div class="navbar">
+        <a href="/">🏠 Home</a>
+        <a href="/about">ℹ️ About</a>
+        <a href="/contact">📞 Contact</a>
+    </div>
+</body>
+</html>

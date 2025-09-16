@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MLR - Profit Prediction</title>
+  <style>
+    html,body { height:100%; margin:0; font-family:Arial, sans-serif; }
+    body { background: skyblue; display:flex; flex-direction:column; align-items:center; }
+    .wrap { margin-top:40px; width:92%; max-width:720px; text-align:center; }
+    .card { background:#fff; padding:24px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.12); }
+    h1 { margin:0 0 10px 0; }
+    .row { display:flex; gap:14px; margin-bottom:10px; }
+    .col { flex:1; }
+    label { display:block; margin-bottom:6px; font-weight:600; text-align:left; }
+    input, select { width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; }
+    button { margin-top:12px; padding:10px 18px; border:none; border-radius:8px; background: #ff3300; color:#fff; font-weight:700; cursor:pointer; }
+    .result-box { margin-top:16px; background:#f7f7f7; padding:12px; border-radius:8px; font-weight:700; }
+    .footer {
+      position:fixed; left:0; right:0; bottom:0; background: #001f4d; color:#fff;
+      padding:12px 10px; text-align:center; font-weight:600;
+    }
+    .footer a { color:#fff; text-decoration:none; margin:0 12px; }
+    .footer a:hover { color:#ffd54f; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Profit Prediction (MLR)</h1>
+      <form method="post" action="/predict_mlr">
+        <label for="rnd">R&D Spend</label>
+        <input id="rnd" name="rnd" type="number" step="0.01" required>
+
+        <label for="admin">Administration</label>
+        <input id="admin" name="admin" type="number" step="0.01" required>
+
+        <label for="marketing">Marketing Spend</label>
+        <input id="marketing" name="marketing" type="number" step="0.01" required>
+
+        <label for="state">State</label>
+        <select id="state" name="state" required>
+          <option value="0">New York</option>
+          <option value="1">California</option>
+          <option value="2">Florida</option>
+        </select>
+
+        <button type="submit">Predict Profit</button>
+      </form>
+
+      {% if mlr_result %}
+      <div class="result-box">Predicted Profit: {{ mlr_result }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/contact">Contact</a>
+  </div>
+</body>
+</html>

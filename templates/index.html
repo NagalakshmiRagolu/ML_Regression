@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Regression Project - Home</title>
+  <style>
+    html,body { height:100%; margin:0; font-family:Arial, sans-serif; }
+    body { background: orange; display:flex; align-items:center; justify-content:center; }
+    .center {
+      display:flex; gap:40px; align-items:center; justify-content:center;
+    }
+    .card {
+      width:220px; height:220px; background:#fff; border-radius:18px;
+      display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:700; color:#111;
+      cursor:pointer; box-shadow:0 10px 25px rgba(0,0,0,0.15); transition:all .25s ease;
+      user-select:none;
+    }
+    .card:hover { transform:translateY(-8px) scale(1.05); background:green; color:#fff; }
+    /* footer (bottom navbar) */
+    .footer {
+      position:fixed; left:0; right:0; bottom:0; background: #001f4d; color:#fff;
+      padding:12px 10px; text-align:center; font-weight:600;
+    }
+    .footer a { color:#fff; text-decoration:none; margin:0 12px; }
+    .footer a:hover { color:#ffd54f; }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div class="card" onclick="location.href='/slr'">SLR</div>
+    <div class="card" onclick="location.href='/mlr'">MLR</div>
+  </div>
+
+  <div class="footer">
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/contact">Contact</a>
+  </div>
+</body>
+</html>
